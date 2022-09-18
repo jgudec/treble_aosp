@@ -1,4 +1,4 @@
-From f616225ed367b2f3f017c6593522793d09454bf5 Mon Sep 17 00:00:00 2001
+From 43b46c65b3c9390988401dda6f5878d4a9a2eeb6 Mon Sep 17 00:00:00 2001
 From: Danny Lin <danny@kdrag0n.dev>
 Date: Sat, 16 Oct 2021 05:27:57 -0700
 Subject: [PATCH 26/30] Add support for app signature spoofing
@@ -38,7 +38,7 @@ Change-Id: Ied7d6ce0b83a2d2345c3abba0429998d86494a88
  4 files changed, 56 insertions(+), 3 deletions(-)
 
 diff --git a/core/api/current.txt b/core/api/current.txt
-index c8a43db2..27718303 100644
+index c8a43db2f9c2..277183036c60 100644
 --- a/core/api/current.txt
 +++ b/core/api/current.txt
 @@ -87,6 +87,7 @@ package android {
@@ -58,7 +58,7 @@ index c8a43db2..27718303 100644
      field public static final String MICROPHONE = "android.permission-group.MICROPHONE";
      field public static final String NEARBY_DEVICES = "android.permission-group.NEARBY_DEVICES";
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 7439b2f0..eadcac3a 100644
+index 7439b2f0921f..eadcac3af765 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
 @@ -3534,6 +3534,21 @@
@@ -84,7 +84,7 @@ index 7439b2f0..eadcac3a 100644
           {@link android.content.pm.PackageManager#addPackageToPreferred}
           for details. -->
 diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
-index e5d90f00..7ac26e53 100644
+index e5d90f00f327..7ac26e536f2a 100644
 --- a/core/res/res/values/strings.xml
 +++ b/core/res/res/values/strings.xml
 @@ -974,6 +974,18 @@
@@ -107,7 +107,7 @@ index e5d90f00..7ac26e53 100644
      <string name="permlab_statusBar">disable or modify status bar</string>
      <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
 diff --git a/services/core/java/com/android/server/pm/ComputerEngine.java b/services/core/java/com/android/server/pm/ComputerEngine.java
-index 259ca655..674b22e2 100644
+index 259ca655d2b9..674b22e28a83 100644
 --- a/services/core/java/com/android/server/pm/ComputerEngine.java
 +++ b/services/core/java/com/android/server/pm/ComputerEngine.java
 @@ -1591,6 +1591,29 @@ public class ComputerEngine implements Computer {
@@ -159,5 +159,5 @@ index 259ca655..674b22e2 100644
              if (packageInfo == null) {
                  return null;
 -- 
-2.37.3
+2.17.1
 

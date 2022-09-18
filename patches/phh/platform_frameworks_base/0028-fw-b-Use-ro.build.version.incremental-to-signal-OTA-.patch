@@ -1,4 +1,4 @@
-From 4005d255827574c33beb45f274b04cdb332f6de8 Mon Sep 17 00:00:00 2001
+From bf265c884b008ba0ccc1ae8cfaed9d2e6cc135b2 Mon Sep 17 00:00:00 2001
 From: dhacker29 <dhackerdvm@gmail.com>
 Date: Tue, 24 Nov 2015 01:53:47 -0500
 Subject: [PATCH 28/30] fw/b: Use ro.build.version.incremental to signal OTA
@@ -66,7 +66,7 @@ Change-Id: If0eb969ba509981f9209ffa37a949d9042ef4c2a
  3 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/core/java/android/app/admin/SystemUpdateInfo.java b/core/java/android/app/admin/SystemUpdateInfo.java
-index b88bf76c..fdf2b3f5 100644
+index b88bf76c96ca..fdf2b3f54311 100644
 --- a/core/java/android/app/admin/SystemUpdateInfo.java
 +++ b/core/java/android/app/admin/SystemUpdateInfo.java
 @@ -132,7 +132,7 @@ public final class SystemUpdateInfo implements Parcelable {
@@ -88,7 +88,7 @@ index b88bf76c..fdf2b3f5 100644
          }
          try {
 diff --git a/core/java/android/content/pm/PackagePartitions.java b/core/java/android/content/pm/PackagePartitions.java
-index ff80e614..8bf0d5ff 100644
+index ff80e614be58..8bf0d5ffff76 100644
 --- a/core/java/android/content/pm/PackagePartitions.java
 +++ b/core/java/android/content/pm/PackagePartitions.java
 @@ -129,9 +129,9 @@ public class PackagePartitions {
@@ -104,7 +104,7 @@ index ff80e614..8bf0d5ff 100644
      }
  
 diff --git a/services/core/java/com/android/server/pm/ShortcutService.java b/services/core/java/com/android/server/pm/ShortcutService.java
-index f2bcf5e4..0e66d1a7 100644
+index f2bcf5e461a7..0e66d1a7a7ef 100644
 --- a/services/core/java/com/android/server/pm/ShortcutService.java
 +++ b/services/core/java/com/android/server/pm/ShortcutService.java
 @@ -5136,7 +5136,7 @@ public class ShortcutService extends IShortcutService.Stub {
@@ -117,5 +117,5 @@ index f2bcf5e4..0e66d1a7 100644
  
      final void wtf(String message) {
 -- 
-2.37.3
+2.17.1
 

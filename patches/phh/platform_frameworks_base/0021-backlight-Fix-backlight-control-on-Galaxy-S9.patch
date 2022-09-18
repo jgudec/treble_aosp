@@ -1,4 +1,4 @@
-From 26e8f59eca0c2d3e106eec7be1718115a08e32b7 Mon Sep 17 00:00:00 2001
+From 8c6b0336c6cf51a38f785d6ad309ab47c070382f Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sat, 24 Mar 2018 08:01:48 +0100
 Subject: [PATCH 21/30] backlight: Fix backlight control on Galaxy S9(+)
@@ -53,7 +53,7 @@ Change-Id: I4e85178327d2bb63d5d0a37786058843662a89ba
  1 file changed, 46 insertions(+)
 
 diff --git a/services/core/java/com/android/server/lights/LightsService.java b/services/core/java/com/android/server/lights/LightsService.java
-index 91f14de0..8fa9c4f3 100644
+index 91f14de040fe..8fa9c4f3a698 100644
 --- a/services/core/java/com/android/server/lights/LightsService.java
 +++ b/services/core/java/com/android/server/lights/LightsService.java
 @@ -31,6 +31,7 @@ import android.os.IBinder;
@@ -117,5 +117,5 @@ index 91f14de0..8fa9c4f3 100644
                  color = 0xff000000 | (color << 16) | (color << 8) | color;
                  setLightLocked(color, LIGHT_FLASH_NONE, 0, 0, brightnessMode);
 -- 
-2.37.3
+2.17.1
 

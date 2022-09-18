@@ -1,4 +1,4 @@
-From 948c0d1d22ef259653af604840333157c42b0fd5 Mon Sep 17 00:00:00 2001
+From 4631b98c52e82aafc9a557c96e3b7bb1f0cd2be4 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Thu, 17 May 2018 20:28:35 +0200
 Subject: [PATCH 03/30] Don't crash if there is IR HAL is not declared
@@ -10,7 +10,7 @@ Change-Id: I3afded27441bbee8244d5fda544b3e6d1238dc1b
  2 files changed, 1 insertion(+), 9 deletions(-)
 
 diff --git a/services/core/java/com/android/server/ConsumerIrService.java b/services/core/java/com/android/server/ConsumerIrService.java
-index c4e84a4c..2654f499 100644
+index c4e84a4cd138..2654f499db09 100644
 --- a/services/core/java/com/android/server/ConsumerIrService.java
 +++ b/services/core/java/com/android/server/ConsumerIrService.java
 @@ -49,14 +49,6 @@ public class ConsumerIrService extends IConsumerIrService.Stub {
@@ -29,7 +29,7 @@ index c4e84a4c..2654f499 100644
  
      @Override
 diff --git a/services/core/jni/com_android_server_ConsumerIrService.cpp b/services/core/jni/com_android_server_ConsumerIrService.cpp
-index 63daa350..d068ec06 100644
+index 63daa3503bd5..d068ec06fc14 100644
 --- a/services/core/jni/com_android_server_ConsumerIrService.cpp
 +++ b/services/core/jni/com_android_server_ConsumerIrService.cpp
 @@ -36,7 +36,7 @@ static sp<IConsumerIr> mHal;
@@ -42,5 +42,5 @@ index 63daa350..d068ec06 100644
  }
  
 -- 
-2.37.3
+2.17.1
 

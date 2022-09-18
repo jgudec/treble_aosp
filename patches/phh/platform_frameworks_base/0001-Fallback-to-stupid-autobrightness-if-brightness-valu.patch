@@ -1,4 +1,4 @@
-From 1a9237ae2100a6c4b461eca0bdd72b7a50847ce4 Mon Sep 17 00:00:00 2001
+From caaf4031fd7ddbb54fde34f38125c3c19a815f3e Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Tue, 5 Oct 2021 17:59:16 -0400
 Subject: [PATCH 01/30] Fallback to stupid autobrightness if brightness values
@@ -10,27 +10,34 @@ on some Samsung devices
 
 Change-Id: Ieb679b34239013a5e31b34cb010b12febd9ef6d9
 ---
- .../com/android/server/display/DisplayDeviceConfig.java    | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ .../android/server/display/DisplayDeviceConfig.java | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
 diff --git a/services/core/java/com/android/server/display/DisplayDeviceConfig.java b/services/core/java/com/android/server/display/DisplayDeviceConfig.java
-index a25ac210..a8fd9721 100644
+index a25ac210f9c8..e3184274481d 100644
 --- a/services/core/java/com/android/server/display/DisplayDeviceConfig.java
 +++ b/services/core/java/com/android/server/display/DisplayDeviceConfig.java
-@@ -319,7 +319,12 @@ public class DisplayDeviceConfig {
+@@ -318,12 +318,15 @@ public class DisplayDeviceConfig {
+      */
      public static DisplayDeviceConfig create(Context context, boolean useConfigXml) {
          final DisplayDeviceConfig config;
-         if (useConfigXml) {
+-        if (useConfigXml) {
 -            config = getConfigFromGlobalXml(context);
-+            try {
-+                config = getConfigFromGlobalXml(context);
-+            } catch(Exception e) {
-+                android.util.Log.e("PHH", "Failed parsing automatic brightness values, fallbacking", e);
-+                config = getConfigFromPmValues(context);
-+            }
-         } else {
-             config = getConfigFromPmValues(context);
+-        } else {
+-            config = getConfigFromPmValues(context);
++        if (!useConfigXml) {
++            return getConfigFromPmValues(context);
++        } 
++        try {
++            return getConfigFromGlobalXml(context);
++        } catch(Exception e) {
++            android.util.Log.e("PHH", "Failed parsing automatic brightness values, fallbacking", e);
++            return getConfigFromPmValues(context);
          }
+-        return config;
+     }
+ 
+     private static DisplayDeviceConfig createWithoutDefaultValues(Context context,
 -- 
-2.37.3
+2.17.1
 

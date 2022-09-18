@@ -1,4 +1,4 @@
-From 48dd9bb53f1f30c745cf39192a94bdf70bb0ae5a Mon Sep 17 00:00:00 2001
+From 8e077c67fd6a9eb71b7b0e4465d3816b47abd50b Mon Sep 17 00:00:00 2001
 From: Peter Cai <peter@typeblog.net>
 Date: Tue, 12 Oct 2021 21:37:22 -0400
 Subject: [PATCH 27/30] PackageParser: support glob matching for properties
@@ -9,7 +9,7 @@ Needed to make phh's vendor overlays work
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/core/java/android/content/pm/PackageParser.java b/core/java/android/content/pm/PackageParser.java
-index ca401d28..ec71d9b4 100644
+index ca401d28a623..ec71d9b4d4e0 100644
 --- a/core/java/android/content/pm/PackageParser.java
 +++ b/core/java/android/content/pm/PackageParser.java
 @@ -2536,14 +2536,14 @@ public class PackageParser {
@@ -33,5 +33,5 @@ index ca401d28..ec71d9b4 100644
                  }
              }
 -- 
-2.37.3
+2.17.1
 

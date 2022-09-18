@@ -1,4 +1,4 @@
-From fd889e77d391ea5bb475dd6f648ea552495e826e Mon Sep 17 00:00:00 2001
+From 38e76b27edfbd39d90dc21a1baf73b13876d8ad2 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sat, 20 Mar 2021 14:31:01 +0100
 Subject: [PATCH 19/30] Automatically detect pick up sensor, so that an overlay
@@ -9,7 +9,7 @@ Subject: [PATCH 19/30] Automatically detect pick up sensor, so that an overlay
  1 file changed, 17 insertions(+), 2 deletions(-)
 
 diff --git a/core/java/android/hardware/display/AmbientDisplayConfiguration.java b/core/java/android/hardware/display/AmbientDisplayConfiguration.java
-index 7d8f2ff9..bd79b727 100644
+index 7d8f2ff92200..bd79b727fd05 100644
 --- a/core/java/android/hardware/display/AmbientDisplayConfiguration.java
 +++ b/core/java/android/hardware/display/AmbientDisplayConfiguration.java
 @@ -25,6 +25,9 @@ import android.text.TextUtils;
@@ -46,5 +46,5 @@ index 7d8f2ff9..bd79b727 100644
      /** @hide */
      public boolean tapGestureEnabled(int user) {
 -- 
-2.37.3
+2.17.1
 
